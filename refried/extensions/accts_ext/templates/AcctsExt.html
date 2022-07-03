@@ -53,7 +53,7 @@
               {% set status, last_balance = extension.account_uptodate_status(account.account) %}
               {% set balance=account_macros.balance_directive(ledger, account.account) %}
               {% set last_balance_activity = (today() - last_balance).days if last_balance else 0 %}
-              {% if last_balance_activity > ledger.fava_options['uptodate-indicator-grey-lookback-days'] %}
+              {% if last_balance_activity > ledger.fava_options.uptodate_indicator_grey_lookback_days %}
                 {% set status = "yellow" %}
               {% endif %}
               <copyable-text class="status-indicator status-{{ status }}" title="{{ infotext[status] }} ({{ last_balance_activity }} days ago)
